@@ -1,0 +1,176 @@
+# Conditional Expressions
+
+Decision making is required when we want to execute a code only if a certain condition is satisfied. The if...elif...else statement is used in Python for decision making. If-else conditional statement is used in when a situation leads to **two conditions** and **one of them should hold true**.
+
+## If else Statement Syntax
+
+```{python}
+x=1
+if x==1:
+    print("x is 1") # this is body of if or statement
+#else:
+ #   print("x is not 1") # this is body of elif
+```
+
+Here, the program evaluates the `test expression` and will execute statement(s) only if the test expression is `True`. If the test expression is `False`, the statement(s) is not executed.
+
+In Python, the body of the `if` statement is indicated by the **indentation**. The body starts with an indentation and the first unindented line marks the end.
+
+Remember: Python interprets non-zero values as `True`. `None` and `0` are interpreted as `False`.
+
+<center>
+
+![](Python_if_else_statement.webp)
+
+</center>
+
+## Indentation
+
+Python uses **indentation** for blocks, instead of curly braces. Both **tabs and spaces** are supported, but the standard indentation requires standard Python code to **use four spaces**. For example:
+
+```{python}
+x=1
+if x==1:
+    #indented four spaces
+    print("x is 1")
+else:
+    print("x is not 1")
+```
+
+If statement, without indentation (will raise an error).
+
+## If elif and else Statement
+
+```{python}
+x=-1
+if x==1:
+    #indented four spaces
+    print("x is 1") # this is body of if or statement
+elif x<0:
+  print("x is less than zero")
+else:
+    print("x is not 1") # this is body of elif
+```
+
+<center>
+
+![](if_elif_else_statement.jpg)
+
+</center>
+
+### Example
+
+Write a program to print 'Yes' when the number entered by the user is greater than or equal to 25.
+
+```{python, error=TRUE, include=TRUE}
+#n = int(input(" Please enter the number: "))
+n=32
+if n>=25:
+  print("Yes")
+else:
+  print("No")
+```
+
+Write a program to check if a number entered by the user is positive or negative or zero and display an appropriate message.
+
+```{python}
+#n = int(input(" Please enter the number: "))
+n = -4
+if n>0:
+  print("Number is +ve")
+elif n==0:
+  print("Number is zero")
+else:
+  print("Number is -ve")
+```
+
+we use if elif and else statement ***if one of the statement is true***.
+
+## Nested if statements
+
+We can have a `if...elif...else` statement inside another `if...elif...else` statement. This is called **nesting** in computer programming.
+
+Any number of these statements can be nested inside one another. Indentation is the only way to figure out the level of nesting. They can get confusing, so they must be avoided unless necessary.
+
+Example: Write a program to check if a number entered by the user is positive or negative or zero and display an appropriate message using nested if statement.
+
+```{python}
+#n = int(input(" Please enter the number: "))
+n = 3
+if n>=0:
+  if n==0:
+    print("Number is zero")
+  else:
+    print("Number is +ve")
+else:
+  print("Number is -ve")
+```
+
+### Note:
+
+-   There can any number of elif statements.
+
+-   last else will be executed if all elif conditions/statements fails.
+
+## Multiple If Conditions
+
+### Example
+
+Write a program to print largest number among four numbers entered by the user.
+
+```{python}
+n1 = 4 #n1 = int(input(" Enter the First Number : "))
+n2 = 3 #n2 = int(input(" Enter the 2nd  Number : "))
+n3 = 2 #n3 = int(input(" Enter the 3rd Number : "))
+n4 = 1 #n4 = int(input(" Enter the 4th Number : "))
+
+if n1>n2:
+    f1 = n1
+else:
+   f1 = n2
+if n3>n4:
+   f2 = n3
+else:
+    f2 = n4
+if f1>f2:
+    print(f" The Largest Number is : {f1} ")
+else:
+    print(f" The Largest Number is : {f2} ")
+
+```
+
+## Exercise
+
+1.  Write a program to check whether a user entered number is odd or even?
+
+2.  Take two numbers from user and print larger.
+
+3.  Take three numbers from user, and print the largest.
+
+4.  Write a program to check whether a user entered number is odd or even,valid only for first 10 natural numbers.
+
+5.  write a program to get the difference b/w a given number and 17, if number is greater than 17, return double the absolute difference.
+
+6.  Write a program to calculate the sum of three given numbers, if values are equal then return thrice of their sum.
+
+7.  Write a prog. to get a new string from a given string where "Is" has been added to the front. if the given string already begins with "Is" then return the string.
+
+8.  If Question mark '?' is missing in above string, then also include the '?' at the end.
+
+9.  Write a program to find out whether a given post is talking about "SBP" or not.
+
+    1.  Write a program to find out whether a student is fail or pass? if it require total 40% and at-least 33% in each subject to pass. Assume 3 subjects, input from the user and marks are out of 100.
+
+10. Write a program to detect a spam (OSICO Spam detector), a spam comment is defined as a text containing following keywords:
+
+    "make a lot of money", "buy now", "subscribe this", "click this". Write a program to detect these spams.
+
+11. Write a program to calculate the grade of an officer from his numeric rating from the following scheme: greater than 4.5 implies A, greater than 3.5 implies B+, greater than 3 implies B and else C.
+
+12. Write a program to find out the type of the variable Var1 = -------. suppose 1+2j check whether it is int, float, str, bool, complex, tuple, dict, list, or unknown.
+
+13. Write a Python program to sum of three given integers. However, if two values are equal sum will be zero.
+
+14. Write a program to calculate the fare of a journey based on the following conditions, fare will be charged Rs. 15/km for first 100km, for next 200km it will be Rs.14/km, for next 200km it will be Rs.12/km and for distance above 500km, it will be charged Rs.11/km.
+
+15. Write a routine to convert weight from Kg to pounds or pounds to kg.

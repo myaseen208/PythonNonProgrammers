@@ -1,0 +1,247 @@
+# Functions and Recursion
+
+## Function
+
+A function is a group of related statements that performs a specific task.
+
+Functions help break our program into smaller and modular chunks. As our program grows larger and larger, functions make it more organized and manageable. Furthermore, it avoids repetition and makes the code reusable any number of time.
+
+### Syntax
+
+```{python, error=TRUE, include=TRUE}
+def function_name(parameters):
+	"""docstring"""
+	statement(s)
+```
+
+Above shown is a function definition that consists of the following components.
+
+-   Keyword **`def`** that marks the start of the function header.
+
+-   A function name to uniquely identify the function. Function naming follows the same rules of writing identifiers in Python.
+
+-   Parameters (`arguments`) through which we pass values to a function. They are optional.
+
+-   A colon (:) to mark the end of the function header.
+
+-   Optional documentation string (doc string) to describe what the function does.
+
+-   One or more valid python statements that make up the function body. Statements must have the same indentation level (usually 4 spaces).
+
+-   The statement `return` exits a function, optionally passing back a value..
+
+### Example
+
+```{python}
+def greet(name):
+  '''Greeting Function'''
+  print("Good Day, " +name)
+greet("Ahmad")
+```
+
+### Quick Quiz
+
+1.  `Define a function to say Hello, good morning "name", if the person in your contact list, otherwise ask "Who are You?".`
+
+2.  `Define a function to return the absolute value of the entered number.`
+
+## Type of functions
+
+Basically, we can divide functions into the following two types:
+
+1.  `Built-in functions` - Functions that are built into Python.
+
+2.  `User-defined functions` - Functions defined by the users themselves.
+
+For example, len( ), range ( ) and print( ) are `built-in functions`, and the `greet function` defined above is a `user-defined function`.
+
+## Functions with arguments
+
+```{python}
+def greet1(name,msg):
+  print("Hello", name +', '+msg)
+greet1('ahmad', 'how are you')
+```
+
+Here, the function `greet1()` has two parameters.
+
+Since we have called this function with two arguments, it runs smoothly and we do not get any error.
+
+If we call it with a different number of arguments, the interpreter will show an error message. Below is a call to this function with one and no arguments along with their respective error messages.
+
+```{python, error=TRUE, include=TRUE}
+def greet1(name,msg):
+  print("Hello", name +', '+msg)
+greet1('ahmad')
+```
+
+## Default argument or parameter value
+
+Function **arguments** can have **default values** in Python. We can provide a default value to an argument by **using the assignment operator (=)**. Here is an example.
+
+```{python}
+def greet1(name ,msg="How do you do"):
+  print("Hello", name +', '+msg)
+greet1('Ahmad')
+```
+
+The input to a function is called a formal parameter.
+
+A variable that is declared inside a function is called a **local variable**. The parameter only exists within the function (i.e. the point where the function starts and stops).
+
+A variable that is declared outside a function definition is a global variable, and its value is accessible and modifiable throughout the program.
+
+```{python}
+def square(a): # formal parameter
+  '''
+  This function will return the sqaure of number plus 1
+  
+  '''
+  b = 1 # local variable
+  c = a*a + b
+  return c
+
+print(square(2))
+  
+```
+
+## Recursive function
+
+Recursion is the process of defining something in terms of itself. That is, a function that calls itself. For example:
+
+`factorial(n)=n * factorial(n-1)`
+
+### Example:
+
+```{python}
+#n! = 1*2*3*...*n
+n=3
+product = 1
+for i in range(n):
+  product=product*(i+1)
+print(product)
+```
+
+### Return Values
+
+The Python return statement is a **special statement that you can use inside a function or method to send the function's result back to the caller**. To let a function return a value, use the return statement:
+
+above example can be wrapped in a function as:
+
+```{python}
+def fact(n):
+  product = 1
+  for i in range(n):
+    product=product*(i+1)
+  return product
+print(fact(3))
+```
+
+Using Recursion
+
+```{python}
+#num = input("Enter a number: ")
+num=3
+def recur_factorial(n):
+   if n == 1:
+       return n
+   elif n < 1:
+       return ("NA")
+   else:
+       return n*recur_factorial(n-1)
+
+print (recur_factorial(int(num)))
+```
+
+## Pre-defined Functions
+
+There are many pre-defined functions in Python, so let's start with the simple ones.
+
+The `print()` function:
+
+```{python}
+# Build-in function print()
+
+list1 = [10.0, 8.5, 9.5, 7.0, 7.0, 9.5, 9.0, 9.5] 
+print(list1)
+```
+
+The `sum()` function adds all the elements in a list or tuple: try pease
+
+
+The `len()` function show the length a list or tuple: try please
+
+## Exceptions
+
+An exception is an error that occurs during the execution of code. This error causes the code to raise an exception and if not prepared to handle it will halt the execution of the code.
+
+### Exampls
+
+Run each piece of code and observe the exception raised
+
+```{python, error=TRUE, include=TRUE}
+1/0
+y = a+5
+a = [1,2,3]
+a[5]
+
+```
+
+## Exercise_Functions
+
+1.  Create a function `con` that add two number .
+
+2.  Can the `con` function we defined before be used to concatenate lists or tuples?
+
+3.  Come up with a function that divides the first input by the second input.
+
+4.  Define a function to find the greatest of three numbers using.
+
+5.  How do you prevent python print( ) function to print a new line at the end.
+
+6.  Write a recursive function to calculate the sum of first n natural numbers.
+
+7.  Write a function to print first n lines of the following pattern.\
+    \*\*\*\*\****\
+    \*\*\***\
+    *\*
+
+8.  Write a function which converts inches in cm
+
+9.  Write a function to remove a given word from a string and strip it at the same time.
+
+10. Write a Python function to sum all the numbers in a list. Sample List : (8, 2, 3, 0, 7)
+
+11. Write a Python function that takes a list and returns a new list with unique elements of the first list. Sample List : \[1,2,3,3,3,3,4,5\], Unique List : \[1, 2, 3, 4, 5\]
+
+12. Write a Python function to check whether a number is perfect or not.
+
+    According to Wikipedia : In number theory, a perfect number is a positive integer that is equal to the sum of its proper positive divisors, that is, the sum of its positive divisors excluding the number itself (also known as its aliquot sum). Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself).
+
+    Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6. Equivalently, the number 6 is equal to half the sum of all its positive divisors : ( 1 + 2 + 3 + 6 ) / 2 =6.
+
+13. Write a function which is capable of addition, subtraction, division and multiplication of two numbers.
+
+<details>
+
+<summary>
+
+Solution! (Click to expand)
+
+</summary>
+
+```{python}
+#num = input("Enter a number: ")
+num=3
+def recur_factorial(n):
+   if n == 1:
+       return n
+   elif n < 1:
+       return ("NA")
+   else:
+       return n*recur_factorial(n-1)
+
+print (recur_factorial(int(num)))
+```
+
+</details>

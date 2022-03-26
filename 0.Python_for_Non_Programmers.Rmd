@@ -1,0 +1,72 @@
+---
+#title: Python for Non-Programmers
+#author: Ahmad Nadeem
+#date: "`r Sys.Date()`"
+#output:
+#  prettydoc::html_pretty:
+#      toc: true
+#      toc_depth: 2
+#      number_sections: true
+#      theme: architect
+#      highlight: github
+#PrettyDoc hpstr  leonids  tectile  cayman  architect
+
+title: "Python for Non-Programmers"
+author: "Ahmad Nadeem"
+date: "`r Sys.Date()`"
+output: rmdformats::readthedown  #html_clean,html_docco, material,readthedown
+---
+
+```{r setup, include=FALSE, cache=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+```
+
+```{r, child='1.Introduction.Rmd', eval = FALSE}
+
+```
+
+
+```{r, child='2.Module_PIP_Comments.Rmd'}
+
+```
+
+
+```{r, child='3.Variables.Rmd'}
+
+```
+
+
+```{r, child='4.Strings.Rmd'}
+
+```
+
+
+```{r, child='5.Lists_Tuples.Rmd'}
+
+```
+
+
+```{r, child='6.Dict_Sets.Rmd'}
+
+```
+
+
+```{r, child='7.Cond_Expressions.Rmd'}
+
+```
+
+
+```{r, child='8.Loops.Rmd'}
+
+```
+
+
+```{r, child='9.List_Comprehension.Rmd'}
+
+```
+
+
+```{r, child='10.Functions_Recursion.Rmd'}
+
+```

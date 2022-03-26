@@ -1,0 +1,209 @@
+# Strings
+
+A string is a sequence of characters. Strings are amongst the most popular types in Python. We can create them simply by enclosing characters in quotes. Python treats single quotes the same as double quotes. Creating strings is as simple as assigning a value to a variable. For example −
+
+    var1 = 'Hello World!'
+    var2 = "Python Programming"
+    var3 = '''Python Programming
+              for begginners'''
+
+## String Indexing
+
+Individual characters of a string can be accessed directly using a numeric index.
+
+-   String indexing in python is zero-based.
+
+    -   The first character in the string has index 0.
+
+    -   The next has index 1 . . . and so on.
+
+    -   The index of the last character will be length of the string minus 1.
+
+### Example
+
+| String             | a   | h   | m   | a   | d   |
+|--------------------|-----|-----|-----|-----|-----|
+| **Index**          | 0   | 1   | 2   | 3   | 4   |
+| **Negative Index** | -5  | -4  | -3  | -2  | -1  |
+
+## Slicing Strings
+
+You can return a range of characters by using the slice syntax. Specify the start index and the end index, separated by a colon in \[ \], to return a part of the string. i.e. we can get a part of the string using slicing.
+
+## Syntax : \[Start : Stop : Step\]
+
+-   **Start**: First Index of the sub-string you want to extract.
+
+-   **Stop**: Last Index of the sub-string you want to extract.
+
+-   **Step**: The size of the jump you want to take while extracting the subsection.
+
+## Scenarios
+
+`Scenario 1: No step size` `Scenario 2: No stop index` `Scenario 3: No start index`
+
+`Scenario 4: No start and stop index` `Scenario 5: No strat, step or stop index`
+
+`Scenario 6: Single charachter as a string`
+
+### Example
+
+```{python}
+A = "Welcome to the World of Python"
+print(A[3:7]) # by default step size is 1
+print(A[24:]) # python will assume last index of string as the stop index
+print(A[:7])  #python assume the start index as 0
+print(A[::2]) # python will give every second chanracter from complete string
+print(A[::])  # start=0, stop=last index, step=1 by deafult
+print(A[0:1]) # [start:start+1:1]
+
+```
+
+Omitting both indices returns the original string, in its entirety. Literally. It's not a copy, it's a reference to the original string:
+
+```{python}
+s='NIBAF'
+t = s[:]
+print(id(s))
+print(id(t))
+```
+
+## Concatenating the Strings
+
+String concatenation means add strings together. Use the + character to add a variable to another variable:
+
+```{python}
+x = "Python Eats"
+y= "???"
+z = x+y
+print(z)
+```
+
+## String Functions
+
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| **Function** | **Explanation**                                                                                                                            | **Syntax**              |
++:=============+:===========================================================================================================================================+:========================+
+| capitalize() | The capitalize() method converts first character of a string to uppercase letter and lowercases all other characters, if any               |     string.capitalize() |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| upper()      | The `upper()` method converts all lowercase characters in a string into uppercase characters                                               | `string.upper()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| lower()      | The `lower()` method converts all uppercase characters in a string into lowercase characters                                               | `string.lower()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| swapcase()   | The `swapcase` method converts lower to uppar and upper to lower                                                                           | `string.swapcase`       |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| count()      | The `count()` method returns the number of occurrences of a **substring** in the given string                                              | `string.count()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| endswith()   | **T**he `endswith()` method returns `True` if a string ends with the specified suffix. If not, it returns `False`                          | `string.endswith()`     |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| find()       | The `find()` method returns the index of *first occurrence* of the **substring** (if found). If not found, it returns -1                   | `string.find()`         |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| len()        | The `len()` method returns the length of a string                                                                                          | `string.len()`          |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| index()      | The `index()` method returns the index of *first occurrence* of the **substring** (if found). If not found, it returns substring not found | `string.index()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| replace()    | The `replace()` method replaces each matching occurrence of the old character/text in the string with the new character/text               | `string.replace()`      |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| strip()      | Removes **leading and trailing characters** from a string.                                                                                 | `string.strip()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| lstrip()     | Removes **leading characters** from a string.                                                                                              | `string.lstrip()`       |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| rstrip()     | Removes **trailing characters** from a string.                                                                                             | `string.rstrip()`       |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| join()       | Joins elements of an **iterable** into a **single string**.                                                                                | `string.join()`         |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+| split        | **Splits** a string into a list of **substrings** based on separator                                                                       | `string.split()`        |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+
+
+```{python}
+a = "    Python is Easy   "
+b = ":".join(["Ahmad", "Nadeem"])
+c = "Ahmad Nadeem".split()
+print(a.upper())
+print(a.endswith('y'))
+print(a.find('n'))
+print(a.replace("Python" , "Jython"))
+print(a.strip())
+print(b)
+print(c)
+```
+
+## Escape Sequence Characters
+
+In Python, escape sequences are indicated by a backslash ( \\ ).
+
+| **Syntax** | **Explanation**                                                                                                                                      |
+|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| \\n        | The most important one may be `\n` which indicates a new line. Like so, multiple logical lines can be stacked into a single physical line.           |
+| \\'        | Another escape sequence worth mentioning is `\'` for a single quote within a [string](https://www.spss-tutorials.com/spss-string-variables-basics/). |
+| \\\\       | A backslash also escapes itself so if it's really a backslash you want, double it as in `\\`.                                                        |
+| \\t        | insert a tab in a string                                                                                                                             |
+
+## Formatted String Literal or f-string
+
+```{python}
+n = 5
+m = 10
+prod = n*m
+print('The product of', n, 'and', m, 'is', prod)
+
+# this can be reproduced by using f-string as:
+
+print(f'The product of {n} and {m} is {prod}')
+```
+
+## Exercise
+
+1.  Convert the String `"welcome to the beautiful world of python"` to `"Welcome To The Beautiful World Of Python"`
+
+2.  Find the output of the following:
+
+        str1 = "PYnative"
+        print(str1[1:4], str1[:5], str1[4:], str1[0:-1], str1[:-1])
+
+3.  Guess the output of the following:
+
+    ```{python}
+    # print('python \n cpython')
+    # print('python \t cpython')
+    # print('python \\ cpython')
+    ```
+
+4.  if a='1' and b='2' what will be the value of c=a+b?
+
+5.  Consider the variable **g**, and find the first index of the sub-string **snow**:
+
+    g = "Mary had a little lamb Little lamb, little lamb Mary had a little lamb \\ Its fleece was white as snow And everywhere that Mary went Mary went, Mary went \\ Everywhere that Mary went The lamb was sure to go"
+
+6.  In the above variable **g**, replace the sub-string **Mary** with **Bob**:
+
+7.  What is the result of following?\
+    "hello Mike".find("Mike")
+
+8.  If string='Welcome' then how to get output as WelcomeWelcomeWelcome?
+
+9.  Ask the name and favorite fruit from two persons using input and return as a single string. like: Ahmad likes Mangoes and Muhammad likes Oranges.
+
+10. Write a program to detect double spaces in a string.
+
+11. Replace the double spaces in above question with a single space.
+
+12. Write a program to format the following letter using escape sequence characters.
+
+    letter = " Dear Participants, This Python course is nice. Thanks!"
+
+13. Find the length of the word NIBAF.
+
+14. Print the reversed str = 'NIBAF'
+
+15. Attempt to index beyond the end of the string results and checkout the result. like ,'Ahmad\[6\]'
+
+16. Select the every third letter from the str = 'I am learning python'
+
+17. How to check the given word, sentence or a number is palindrome!
+
+    A word, verse, or sentence (such as 'Able was I ere I saw Elba') or a number (such as 1881) that reads the same backward or forward is called palindrome.
+
+18. Write a program which accepts the user's first and last name then print in reverse order.
+
+19. Write a program to accept a filename from user and print the name and extension of that file.

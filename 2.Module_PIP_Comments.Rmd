@@ -1,0 +1,334 @@
+# Modules, PIP and Comments
+
+## Modules
+
+Modules refers to a file containing *Python statements and definitions*. A file containing a python code is called a module. We use modules to break down large programs into small manageable and organized file. In other words, a module is a file containing code written by someone else (usually) which can be imported and used in our program.
+
+-   Built in Modules --> Pre installed in Python -> import module_name
+
+    -   Some examples of built in modules are random, bdb, calendar, os etc.
+
+-   External Modules --> Needs to be installed using PIP -> pip install package_name
+
+    -   Some examples of external modules are Pandas, Matplotlib, NumPy etc.
+
+## Preferred Installer Program (PIP)
+
+PIP is package manager for python packages. If you have Python version 3.4 or later, PIP is included by default. Whenever we wants to install a package we may write like:
+
+PIP install package_name
+
+## Comments
+
+A Python comment is line of text in a program that is not executed by the interpreter. Comments can be used during debugging to identify issues and to explain code.
+
+-   Single Line Comments --> You can write using \#
+
+-   Multiple lines Comments --> you can write using \`\`\``comment`\`\`\`
+
+### Print Function
+
+The `print()` function prints the specified message to the screen. The message can be a string, or any other object. The full syntax of `print()` is:
+
+    print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+
+### Parameters of Print Function
+
+-   **objects** - object to be printed. **\*** indicates that there may be more than one object
+
+-   **sep** - objects are separated by sep. **Default value**: `' '`
+
+-   **end** - end is printed at last. Default is '\\n' (line feed)
+
+-   **file** - must be an object with write(string) method. If omitted, `sys.stdout` will be used which prints objects on the screen.
+
+-   **flush** - If True, the stream is forcibly flushed. **Default value**: `False`
+
+### First Python Program
+
+Let's write our first python program . Create a file name **name.py** and write the following code. Execute this (.py file) and you will see the output of your program.
+
+```{python}
+print("Hello World!") # Single Line Comment
+
+a=2
+print('a=', a)  # two objects passed
+
+print('a',a, sep='=====', end='') #with seprator and end parameters
+
+print('a=',a, sep='', end='\n\n') 
+
+print('a',a, sep='=====', end='')
+```
+
+## Using Python as Calculator
+
+We can use Python as a calculator by typing **python + enter** on the terminal. This will open Read Evaluate Print Loop (REPL) i.e. \>\>\>.
+
+## Some Arithmetic Operators
+
+| Symbol | Functionality                             |
+|--------|-------------------------------------------|
+| \+     | Addition                                  |
+| \-     | Subtraction                               |
+| \*     | Multiplication                            |
+| /      | Division                                  |
+| \%     | Modulo (yields remainder after division)  |
+| //     | Integer Division (truncates towards zero) |
+| \*\*   | Exponentiation                            |
+
+: Arithmetic Operators
+
+### Python Code with Output
+
+```{python}
+5/4
+5%4
+5//4
+5**4
+```
+
+## Assignment Operators
+
+Assignment operators are used in Python to assign values to variables.
+
+| Operator | Example | Equivalent |
+|----------|---------|------------|
+| =        | x=2     | x=2        |
+| +=       | x+=2    | x=x+2      |
+| -=       | x-=2    | x=x-2      |
+| \*=      | x\*=2   | x=x\*2     |
+| /=       | x/=2    | x=x/2      |
+| %=       | x%=2    | x=x%2      |
+| //=      | x//=2   | x=x//2     |
+| \*\*=    | x\*\*=2 | x=x\*\*2   |
+
+### Example
+
+Assignment can be done on more than one variable "simultaneously" on the same line like this:
+
+```{python}
+x,y=1,2
+print(x,y)
+x=8
+x+=2
+print(x)
+x-=3
+print(x)
+x%=3
+print(x)
+```
+
+Mixing operators between numbers and strings is not supported.
+
+```{python, error=TRUE, include=TRUE}
+#This will not work
+a,b=1,2
+c="String"
+print(a+b)
+print(a+b+c)
+```
+
+## Conditions / Comparison Operator
+
+Python uses boolean logic to evaluate conditions. The boolean values True and False are returned when an expression is compared or evaluated.
+
+| Operator | Description                                                                                                       | Example                                             |
+|----------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| ==       | If the values of two operands are equal, then the condition becomes true.                                         | (a == b) is not true.                               |
+| !=       | If values of two operands are not equal, then condition becomes true.                                             | (a != b) is true.                                   |
+| \<\>     | If values of two operands are not equal, then condition becomes true.                                             | (a \<\> b) is true. This is similar to != operator. |
+| \>       | If the value of left operand is greater than the value of right operand, then condition becomes true.             | (a \> b) is not true.                               |
+| \<       | If the value of left operand is less than the value of right operand, then condition becomes true.                | (a \< b) is true.                                   |
+| \>=      | If the value of left operand is greater than or equal to the value of right operand, then condition becomes true. | (a \>= b) is not true.                              |
+| \<=      | If the value of left operand is less than or equal to the value of right operand, then condition becomes true.    | (a \<= b) is true.                                  |
+
+### Example
+
+```{python}
+b=(7>4)
+c=(7<4)
+print(b)
+print(c)
+x=5
+print(x==5) # Prints out True
+print(x==2) # prints out False
+print(x>3)  # Prints out True
+```
+
+Notice that variable assignment is done using a single equals operator "=", whereas comparison between two variables is done using the double equals operator "==".
+
+## Logical Operators
+
+| Operator | Description                                        | Example/Syntax |
+|----------|----------------------------------------------------|----------------|
+| and      | Logical AND: True if both the operands are true    | x and y        |
+| or       | Logical OR: True if either of the operands is true | x or y         |
+| not      | Logical NOT: True if operand is false              | not x          |
+
+### Example
+
+```{python}
+Bool1= True
+Bool2= False
+print("THe value if Bool1 and Bool2 is: ", (Bool1 and Bool2))
+print("THe value if Bool1 or Bool2 is: ", (Bool1 or Bool2))
+print("THe value if not Bool1 is: ", (not Bool1))
+print("THe value if not Bool2 is: ", (not Bool2))
+```
+
+## The "in" Operator
+
+The "in" operator could be used to check if a specific object exists within an iterable object container, such as list:
+
+```{python}
+name= "Ahmad"
+List = ["Ahmad", "Nadeem"]
+print(name in List) # this print True as Ahmad is in the list
+```
+
+## Input Function
+
+In Python, we use **input()** function to take input from the user. Whatever you enter as input, the input function *converts it into a string*. If you enter an integer value still input() function convert it into a string.
+
+`a = input(" Please enter your name: ")`
+
+`print(a) # Try yourself`
+
+## Glossary
+
+**algorithm**
+
+:   A set of specific steps for solving a category of problems.
+
+**bug**
+
+:   An error in a program.
+
+**comment**
+
+:   Information in a program that is meant for other programmers (or anyone reading the source code) and has no effect on the execution of the program.
+
+**debugging**
+
+:   The process of finding and removing any of the three kinds of programming errors.
+
+**exception**
+
+:   Another name for a runtime error.
+
+**formal language**
+
+:   Any one of the languages that people have designed for specific purposes, such as representing mathematical ideas or computer programs; all programming languages are formal languages.
+
+**high-level language**
+
+:   A programming language like Python that is designed to be easy for humans to read and write.
+
+**immediate mode**
+
+:   A style of using Python where we type expressions at the command prompt, and the results are shown immediately. Contrast with **script**, and see the entry under **Python shell**.
+
+**interpreter**
+
+:   The engine that executes your Python scripts or expressions.
+
+**low-level language**
+
+:   A programming language that is designed to be easy for a computer to execute; also called machine language or assembly language.
+
+**natural language**
+
+:   Any one of the languages that people speak that evolved naturally.
+
+**object code**
+
+:   The output of the compiler after it translates the program.
+
+**parse**
+
+:   To examine a program and analyze the syntactic structure.
+
+**portability**
+
+:   A property of a program that can run on more than one kind of computer.
+
+**print function**
+
+:   A function used in a program or script that causes the Python interpreter to display a value on its output device.
+
+**problem solving**
+
+:   The process of formulating a problem, finding a solution, and expressing the solution.
+
+**program**
+
+:   a sequence of instructions that specifies to a computer actions and computations to be performed.
+
+**Python shell**
+
+:   An interactive user interface to the Python interpreter. The user of a Python shell types commands at the prompt (>\>\>), and presses the return key to send these commands immediately to the interpreter for processing. The word *shell* comes from Unix. In the PyScripter used in this RLE version of the book, the Interpreter Window is where we'd do the immediate mode interaction.
+
+**runtime error**
+
+:   An error that does not occur until the program has started to execute but that prevents the program from continuing.
+
+**script**
+
+:   A program stored in a file (usually one that will be interpreted).
+
+**semantic error**
+
+:   An error in a program that makes it do something other than what the programmer intended.
+
+**semantics**
+
+:   The meaning of a program.
+
+**source code**
+
+:   A program in a high-level language before being compiled.
+
+**syntax**
+
+:   The structure of a program.
+
+**syntax error**
+
+:   An error in a program that makes it impossible to parse --- and therefore impossible to interpret.
+
+**token**
+
+:   One of the basic elements of the syntactic structure of a program, analogous to a word in a natural language.
+
+## Exercise
+
+1.  Write a program to *print* a multiple lines string in Python.
+
+2.  Using the Python interpreter, type 1 + 2 and then hit return. Python evaluates this expression, displays the result, and then shows another prompt. \* is the multiplication operator, and \*\* is the exponentiation operator. Experiment by entering different expressions and recording what is displayed by the Python interpreter.
+
+3.  Type 1 2 and then hit return. Python tries to evaluate the expression, but it can't because the expression is not syntactically legal. Instead, it shows the error message:
+
+    `{python, error=TRUE, include=TRUE}    #print(1 2)`
+
+    In many cases, Python indicates where the syntax error occurred, but it is not always right, and it doesn't give you much information about what is wrong. So, for the most part, the burden is on you to learn the syntax rules.
+
+    In this case, Python is complaining because there is no operator between the numbers.
+
+4.  Write a program to display a user entered word "Easy" followed by "Python is very" using input() function.
+
+5.  Type cheese without the quotation marks. This is a run-time error; specifically, it is a NameError, and even more specifically, it is an error because the name cheese is not defined.
+
+6.  *Install* an External Module named *pandas.*
+
+7.  Write a program to *print* the *contents of a directory* using *os* module. Hint: Search online for the function which does so i.e how do i list all files of a directory.
+
+8.  Perform some arithmetic using REPL.
+
+9.  Use comparison operators to find out whether a given variable 'a' is greater than 'b' or not. consider a=45 and b=35.
+
+10. Write a program to find out average of two numbers entered by the user.
+
+11. Write a program which accepts the radius of a circle from the user and compute the area.
+
+12. How to find the reminder of a given number?

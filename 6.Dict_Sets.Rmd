@@ -1,0 +1,226 @@
+# Python Dictionaries and Sets
+
+## Dictionaries
+
+Like a real-life dictionary has **words** and **meanings**, Python dictionaries have **keys** and **values**. Dictionaries in Python are collections that are *unordered*, i*ndexed and mutable*. They hold keys and values.
+
+They are in *curly brackets*. Key-value pairs are **separated by commas** and *keys and values* are **separated by colons**. Keys in dictionaries are *unique* and *immutable*. You can search for a value *if you know the key*. **One key cannot have two values**.
+
+```{python}
+Financial_Dictionary = {"Key": "Value", "Key": "Value1", "SBP" : "State Bank of Pakistab", "BSC" : "Banking Services Corporation", "PSPC" : "Pakistan Security Printing Corporation", "NIBAF" : "National Institute of Banking and Finance", 'Marks' : [71, 78, 84]}
+print(type(Financial_Dictionary))
+print(Financial_Dictionary)
+print(Financial_Dictionary['Marks'])
+del(Financial_Dictionary['BSC']) # will del key=BSC
+print(Financial_Dictionary)
+print('BSC' in Financial_Dictionary) # as it already deleted , Results in False
+```
+
+## Nested Dictionaries and Dictionary Methods
+
+```{python, error=TRUE, include=TRUE}
+Dict = {'1' : 'One', '2':'Two', "Dict1" : {'3': 'Three', '4' : 'Four'} }
+print(Dict['1'])
+print(Dict['Dict1']['4'])
+Dict['1'] = 'i' # Immutable i.e. we can change 
+print(Dict)
+print(Dict.keys()) # will show the keys of a dictionary
+print(Dict.values()) #will show the value of a dictionary
+print(Dict.items()) # print the (key : value) for all contents of Dictionary
+new_dict = {'Hello' : 'World'}
+Dict.update(new_dict) # will append new_dict in Dict
+print(Dict)
+print(Dict['9']) # returns error if not in Dict
+print(Dict.get('9')) # return None
+```
+
+Quick Quiz: Write a program to ask a phone number in digits and translate them like: 123 One Two Three.
+
+<details>
+
+<summary>
+
+Solution! (Click for Solution)
+
+</summary>
+
+```{python}
+# Phone = input ("Number Please: ")
+phone = "123"
+Digit_Dict = {
+    "1" : "One",
+    "2" : "Two",
+    "3" : "Three",
+    "4" : "Four"
+}
+output = ""
+for numbers in phone:
+    output += Digit_Dict.get(numbers, "!") + " "
+print(output)
+```
+
+</details>
+
+Quick Quiz: Get a message from input method and resturn the same message with translated emoji like ":)" to 😊.
+
+```{python}
+#message = input(">")
+message = "I am happy :)"
+words = message.split()
+# print(words)
+emoji_dict = {
+     ":)" : "😊",
+     ":(" : "😒"
+ }
+trans_message = "" 
+for word in words:
+    trans_message += emoji_dict.get(word, word)+ " "
+print(trans_message)
+
+```
+
+## Sets
+
+Sets in Python are a collection of unordered and unindexed Python objects. Sets are mutable, iterable and they do not contain duplicate values. It is similar to the concept of the mathematical set. That is, set is a collection of non-repetitive elements. The elements in a set are declared inside curly braces separated by commas.
+
+```{python}
+a = {2,1,3,4,2,5,6,3,8}
+type(a)
+print(a)
+b = {}  # check the type of a
+c = set() # an empty set
+type(c)
+c.add (2)
+c.add (5)
+print(c)
+
+```
+
+Since the sets are *unindexed*, we *cannot use slicing or indexing* on sets, it will give us a TypeError error when using indexing.
+
+### Properties of Sets
+
+-   Sets are Unordered
+
+-   Sets are Unindexed
+
+-   There is no way to change items in a set
+
+-   Sets can't contain duplicate values
+
+## Operations on Sets
+
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Col1                            | Col2                                                                                                                                                      |
++=================================+===========================================================================================================================================================+
+| set.add( n)                     | The add() function in python sets takes the value as an argument which we want to add to our set and adds the element in our set. one element at a time   |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set. remove ( m )               | The function deletes the specified element from the set and if the element is not present in the set, it does not return any error.                       |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set. pop ( )                    | pop() function doesn't take any argument and it removes an arbitrary element from the set and also returns the deleted element.                           |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set. clear( )                   | The clear() function empties the set. It can also be used for dictionaries.                                                                               |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set.update( )                   | The update() function in python sets can be used to add multiple values to the set at once. It takes an iterable like lists, set or tuple as an argument. |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set.union ({4,5})               | Return a new set with all item from both sets                                                                                                             |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set.intersection({7,8})         | Return a set contains common item of both sets                                                                                                            |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set1.difference(set2)           | Return the Set1 - Set2                                                                                                                                    |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set1.symmetric_difference(set2) | return the elements those are not common in set1 and set2                                                                                                 |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| set1.issubset(set2)             |                                                                                                                                                           |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+```{python, error=TRUE, include=TRUE}
+c = {1,2,3}
+c.add([1,2,3]) # we can't add list and dictionaries in a set
+c.add((1,2,3))# we can add tuple 
+print(c)
+print(len(c)) # prints the length of set c
+c.remove(2)  # removes 2 from  set c
+print(c) 
+print(c.pop()) # removes any arbitrary number from  set c and return the value
+print(c)
+c.update({8,9})
+print(c)
+
+```
+
+## Exercise
+
+1.  The Swift, City and Civic have the following prices in thousands 2800, 3500, 6200 respectively. Create a dictionary `car_price_dict` where the keys are the car name and the price in thousands are the values.
+
+2.  You will need this dictionary for the next two questions: Dict= {'SBP_ACT': '1956', 'BCO':'1962'}
+
+    In the Dict, what are the keys?
+
+3.  In the Dict, what are the values?
+
+4.  Use the dictionary find the price of the City.
+
+5.  Find the names of the cars from the dictionary using the method `keys()`
+
+6.  Find the prices of the cars from the dictionary using the method `values()`
+
+7.  Create a dictionary of Urdu words with values as their English translation. Provide user an option to look it up.
+
+8.  Consider the list `A = [1, 2, 2, 1]` and set `B = set([1, 2, 2, 1])`, does `sum(A) == sum(B)`?
+
+9.  Create a new set `C` that is the union of sets `A={1, 2, 3, 4}` and `B={3, 4, 5, 6}`.
+
+10. Find out if `A` is a subset of `C.`
+
+11. Write a program to add an element in a set.
+
+12. Write a program to add **more than one element** in a set.
+
+13. Write a program to remove items from a given set.
+
+14. Write a program to create an intersection of set.
+
+15. Write a program to create a union of sets.
+
+16. Write a program to input 5 numbers from the user and display all the unique numbers
+
+17. Can we have a set with elements 3 and '3' ?
+
+18. What is the type of s = { }?
+
+19. What will be the length of set s:
+
+    s = set(), s.add(1), s.add(1.0), s.add('1')
+
+20. Create a dictionary. Allow 4 users to enter their favorite Fruits as value , ans use their names as keys. Assume names are unique.
+
+21. If names of 2 users are same in above problem, what will happen?
+
+22. If fruit options of 2 users are same in above problem, what will happen?
+
+23. Check if a set is a subset of another set using comparison operator and isubset() operator.
+
+24. Write a Python program to print out a set containing all the colors from color1 which are not present in color2.
+
+    `color1 = set(["White","Black", "Red"])`
+
+    `color2 = set(["Red", "Green"]), Expected Output:{'Black','White'}`
+
+25. Provide a use case for each of the following Python data structures: tuple, list, and dictionary.  Explain why each use case is appropriate for each data structure as opposed to the others.
+
+    List - A shopping list. The list type is appropriate, since it can be changed.
+
+    Tuple - The first 7 prime numbers. A tuple is a suitable structure, because it is a immutable data type.
+
+    Dictionary - A list of words and their meanings. Since a dictionary is made up by key-value pairs, the key would be the word and the value would assume it's meaning.
+
+    Set - A list of registered e-mails in a system. It's a proper way to store them, for the e-mails must each be unique.
+
+26. Ask the phone number from a user, and convert integers into strings like: 1 to one.
+
+27. Creat a dictionary of animal names as keys and their pictures as values. Hint: to get picture/emoji's press window+period(.)
+
+28. Take input from user to show the picture of the animal. Also provide to look at the names of the animals in the dictionary.
+
+29. If animal's picture is not in the dictionary, provide the option to add the name and picture in the dictionary on run time.

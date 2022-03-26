@@ -1,0 +1,152 @@
+# Variables and Data Types
+
+## Variable
+
+A Python variable is a reserved memory location to store values. In other words, a variable in a python program gives data to the computer for processing.
+
+| Words                                    | Explanation                  |
+|------------------------------------------|------------------------------|
+| Variable                                 | Container to store a value   |
+| Keywords (can't be used a variable name) | Reserved Words in Python     |
+| Identifiers                              | Class/Function/Variable Name |
+
+### Keywords
+
+```{python}
+help("keywords")
+```
+
+## Variable Types in Python
+
+Every value in Python has a datatype. Different data types in Python are Integers, Floating point numbers, Strings, Boolean, List, Tuple, Dictionary, etc. Variables in Python can be declared by any name or even alphabets like a, aa, abc, etc.
+
+-   A variable name can contain alphabets, digits and underscores
+
+-   A variable name can start with alphabets or an underscore
+
+-   Variable name is case sensitive
+
+-   A variable name can't start with a number/digit
+
+-   Spaces are not allowed in variable name
+
+### How to Declare and Use a Variable
+
+Let see an example. We will define variable in Python and declare it as "a" and print it.
+
+```{python}
+a=10
+print(a)
+x , y = 5 ,6
+print(x,y)
+b=c=d=30
+print(b,c,d)
+
+```
+
+### How to know the Type of a Variable
+
+Python is completely object oriented, and not "statically typed". You do not need to declare variables before using them, or declare their type, i.e. python automatically identify the type. Every variable in Python is an object.
+
+Here are few basic types of variables. type() function is used to find out the type of a variable.
+
+```{python}
+a=10
+print(type(a))
+b=10.1
+print(type(b))
+c="State Bank of Pakistan"
+print(type(c))
+d=True
+print(type(d))
+e=None
+print(type(e))
+```
+
+### Re-declare a Variable
+
+You can re-declare Python variables even after you have declared once.
+
+```{python}
+#declare a variable and initialize it
+a=10
+# re-declaring the variable 
+a="State Bank of Pakistan"
+print(a)
+```
+
+```{python, error=TRUE, include=TRUE}
+print("a"+10) # we can't concatenate string with integer
+print("a" + "10")
+```
+
+### Type Casting
+
+Type Casting is a process in which we convert a literal of one type to another. built-in functions int(), float() and str() shall be used for typecasting.
+
+-   int() can take a float or string literal as argument and returns a value of `class 'int'` type.
+-   float() can take an int or string literal as argument and returns a value of `class 'float'` type.
+-   str() can take a float or int literal as argument and returns a value of `class 'str'` type.
+
+### Type Casting int to float and string
+
+```{python}
+n=100 # an integer
+print(type(n))
+f=float(n)
+print(type(f))
+s=str(n)
+print(type(s))
+
+```
+
+### Type Casting float to int and string
+
+```{python}
+f=10.5 #a float
+print(type(f))
+n=int(f)
+print(type(n))
+s=str(f)
+print(type(s))
+```
+
+## Exercise
+
+1.  Guess the type of 6/2, 6//2 and check the results.
+
+2.  What is the value of x after the following is run:\
+    \
+    x=4\
+    \
+    x=x/2
+
+3.  Create a variable named `carname` and assign the value `toyota` to it.
+
+4.  Assign: 3 to variable glass_of_water and printout the message "I drank 3 glasses of water today" by using variable name.
+
+5.  Let's try to see what happens after assigning a new value to our variable. Note that program gets executed line by line.
+
+    glass_of_water=3
+
+    glass_of_water=glass_of_water + 1
+
+    print()
+
+6.  Check the type of the variable define above.
+
+7.  Type Cast the above variable first into float and then to string.
+
+8.  Define a variable a =3 and A='NIBAF'. Will 'A' overwrite 'a'?
+
+9.  Check the type of a variable assigned using input() function.
+
+10. Calculate square of the number entered by the user.
+
+11. Write a program to accept two numbers from the user and calculate multiplication.
+
+12. Display string "My", 'Name', "Is", "Python" as "My\*\*Name\*\*Is\*\*Python" Hint: Default separator in print function is space i.e. " ".
+
+13. Write a program to take three names as input from a user in the single `input()` function call.
+
+14. Define a complex variable. 😎
